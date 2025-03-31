@@ -1,0 +1,99 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+#gameArea {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    border: 3px solid #000;
+    overflow: hidden;
+}
+
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+
+.balloon:hover {
+    transform: scale(1.1);
+}
+
+
+.balloon {
+	animation: float 3s infinite;
+    position: absolute;
+    width: 100px;
+    height: 100px; /* Adjust based on your image's aspect ratio */
+    background-color: transparent; /* Explicitly set the background color */
+    background-size: cover;
+    cursor: pointer;
+    transition: transform 0.2s;
+	background-size: contain;
+    background-repeat: no-repeat; /* This ensures the image doesn't repeat */
+    background-position: center;  /* This centers the image in the div */
+}
+
+
+
+.balloon.unpopped {
+    background-image: url('gballon.png');
+	
+}
+
+.balloon.unpopped2 {
+    background-image: url('gballon.png');
+	animation: pop 0.5s forwards;
+}
+
+
+@keyframes pop {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.1); }
+    100% { transform: scale(0); }
+}
+
+.balloon.popped {
+    
+	background-image: url('pballon.png');
+}
+.instruction-text {
+    text-align: center;
+    margin-bottom: 20px;  /* Adjust this value for desired spacing */
+    font-size: 1.5em;     /* Adjust this value for desired font size */
+	
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Default styles for larger screens */
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+/* Adjusted styles for mobile screens */
+@media (max-width: 768px) {  /* This breakpoint can be adjusted based on your needs */
+    .game-container {
+        height: auto;
+        padding: 20px 0;  /* Add some vertical padding for spacing */
+    }
+}
+
